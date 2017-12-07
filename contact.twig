@@ -1,0 +1,125 @@
+{% extends 'partials/_master.twig' %}
+
+  {% block main %}
+
+      <section class="page-content container-fluid contact-hero parralax-container full-width">
+          <div class="row">
+            <div class="col-md-5 col-md-offset-1">
+              <h3>HOW CAN WE HELP YOU?</h3>
+              <h1 class="contact-title">Let's work together.</h1>
+              <br/>
+              <a class="btn btn-default contact-scroll">Contact Us</a>
+              <a href="#" class="btn btn-default open-contact">Submit a Brief</a>
+            </div>
+          </div>
+          <div class="parralax-image right parralax-1" data-paroller-factor="0.3" data-paroller-type="foreground">
+            <img class="load-image" src="{{ asset('images/office-2.jpg', 'theme') }}"/>
+          </div>
+      </section>
+
+      <section id="contact-us" class="page-content container-fluid parralax-container full-width">
+          <div class="row">
+            <div class="col-sm-6"></div>
+            <div class="col-sm-5 col-sm-offset-1 map-overlap">
+              <h5>CONTACT</h5>
+              <a href="mailto:hello@bipolarstudio.la" class="contact-link email-title slide-hover">hello@bipolarstudio.la</a>
+              <br/>
+              <a href="https://www.google.co.uk/maps/place/1308+Factory+Pl,+Los+Angeles,+CA+90013,+USA/@34.03892,-118.2377246,17z/data=!3m1!4b1!4m5!3m4!1s0x80c2c624a95139b5:0xf3f31d37e02df42!8m2!3d34.0389156!4d-118.2355359" target="_blank" class="address slide-hover">
+                1308 Factory Place<br/>
+                Los Angeles, CA 90013<br/>
+                United States
+              </a>
+                <br/><br/>
+              <p class="address">9:00AM - 6:00PM</p>
+              </p>
+            </div>
+          </div>
+          <div class="map-container parralax-image left" data-paroller-factor="0.3" data-paroller-type="foreground">
+            <div id="map"></div>
+          </div>
+      </section>
+
+      <section class="page-content container-fluid representation parralax-container full-width">
+          <div class="row">
+            <div class="col-sm-5 col-sm-offset-1">
+              <div class="row">
+                <div class="col-sm-12">
+                  <h5>REPRESENTATION</h5>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <h4>USA</h4>
+                </div>
+                <div class="col-sm-6">
+                  <h5>Mid West</h5>
+                  <span>
+                    Obsidian<br/>
+                    Brady Hurt<br/>
+                  </span>
+                  <a href="mailto:brady@obsidianreps.com" class="slide-hover">brady@obsidianreps.com</a>
+                  <h5>East Coast</h5>
+                  <span>
+                    /be’spoke/<br/>
+                    Meredyth Mann<br/>
+                  </span>
+                  <a href="mailto:meredyth@byspoke360.com" class="slide-hover">meredyth@byspoke360.com</a>
+                </div>
+                <div class="col-sm-6">
+                  <h5>Film & Television</h5>
+                  <span>
+                    UTA<br/>
+                    Mike Esola<br/>
+                  </span>
+                  <a href="mailto:m.esola@uta.com" class="slide-hover">m.esola@uta.com</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-5">
+
+            </div>
+          </div>
+          <div class="parralax-image right parralax-3" data-paroller-factor="0.3" data-paroller-type="foreground">
+            <img class="load-image" src="{{ asset('images/office-1.jpg', 'theme') }}"/>
+          </div>
+      </section>
+
+      <section class="page-content work-with-us container-fluid parralax-container full-width">
+          <div class="row">
+            <div class="col-sm-6"></div>
+            <div class="col-sm-5 col-sm-offset-1">
+              <h5>WANT TO WORK WITH US?</h5>
+              <h2 class="email-title team">Join our team!</h2>
+              <h5 class="title">Careers</h5>
+              <a href="mailto:careers@bipolarstudio.la" class="contact-link slide-hover">careers@bipolarstudio.la</a>
+              <br/>
+              <h5 class="title">Internships</h5>
+              <a href="mailto:careers@bipolarstudio.la" class="contact-link slide-hover">internships@bipolarstudio.la</a>
+            </div>
+          </div>
+          <div class="parralax-image left parralax-4" data-paroller-factor="0.3" data-paroller-type="foreground">
+            <img class="load-image" src="{{ asset('images/office-2.jpg', 'theme') }}"/>
+          </div>
+      </section>
+
+      <section class="page-content project-navigation container-fluid full-width">
+        <div class="row">
+          <div class="col-sm-4">
+          </div>
+          <div class="col-sm-4 text-center">
+            <a class="page-navigation-link page-up">
+              Back to top<br/>
+              <img src="{{ asset('images/page-arrow-up.svg', 'theme') }}" height="12px"/>
+            </a>
+          </div>
+          <div class="col-sm-4 text-right">
+          </div>
+        </div>
+      </section>
+
+      {% include 'partials/_footer.twig' %}
+      <script src="{{asset('js/contact.js', 'theme') }}"></script>
+      <script src="{{asset('js/jquery.paroller.min.js', 'theme') }}"></script>
+
+{% endblock main %}
+

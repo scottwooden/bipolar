@@ -1,0 +1,199 @@
+{% extends 'partials/_master.twig' %}
+
+{% block main %}
+
+      <section class="project hero-section" id="project-video">
+        {% if record.vimeo_url != "" %}
+        <div class="video-wrapper">
+          <iframe id="hero-player" src="https://player.vimeo.com/video/{{record.vimeo_url}}?api=1&player_id=hero-player" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          <span class="video-wrapper-close" id="close-video-1"><img src="{{ asset('images/icon-close.png', 'theme')}}" width="50px" /></span>
+        </div>
+        {% endif %}
+        <div class="slide-container">
+          <div class="slide slide-background active load-image" data-src="/files/{{record.image}}"></div>
+        </div>
+        <div class="content-container pause-area">
+          <div class="content text-center active">
+            <span class="btn-play" id="project-video-play"><img src="{{ asset('images/icon-play.png', 'theme')}}" width="80px"/></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-content project-header container-fluid trigger-1">
+          <span class="animation-trigger-1"></span>
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center">
+              <h1 class="project-title">{{record.title}}</h1>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center summary"><h3>SUMMARY</h3></div>
+          </div>
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center"><span class="project-label">{{record.summary}}</span></div>
+          </div>
+      </section>
+
+      <section class="page-content container-fluid project-description trigger-2">
+          <span class="animation-trigger-2"></span>
+          <div class="row">
+            <div class="col-md-5 col-md-offset-2">
+              <h2>
+                {{record.teaser}}
+              </h2>
+              <div class="p-body">
+                {{record.body}}
+              </div>
+            </div>
+            <div class="col-md-2 col-md-offset-2 project-meta">
+              {% for credit in record.credits %}
+                  <h5>{{credit.label}}</h5>
+                  <p>{{credit.author}}</p>
+              {% endfor %}
+
+              <h5 class="share-this-title">SHARE THIS</h5>
+
+               <a href="http://facebook.com" target="_blank" class="social-button"><img src="{{ asset('images/social-facebook.png', 'theme') }}" width="30px"/></a>
+               <a href="http://twitter.com" target="_blank" class="social-button"><img src="{{ asset('images/social-twitter.png', 'theme') }}" width="30px"/></a>
+            </div>
+          </div>
+      </section>
+
+      <section class="project-case-study">
+        {% if record.case_study_video_url != "" %}
+        <div class="video-wrapper">
+          <iframe id="case-study-player" src="https://player.vimeo.com/video/{{record.case_study_video_url}}?api=1&player_id=case-study-player" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          <span class="video-wrapper-close" id="close-video-2"><img src="{{ asset('images/icon-close.png', 'theme')}}" width="50px" /></span>
+        </div>
+        {% endif %}
+        <div class="project-case-study-background load-image" data-src="/files/{{record.case_study_video_screenshot}}"></div>
+        <div class="case-study-content">
+          <div class="content-case">
+            <h2>Case Study</h2>
+            <h3>How we made it</h3>
+            <span class="btn-play case-study-player-button"><img src="{{ asset('images/icon-play.png', 'theme')}}" width="50px"/></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-content container-fluid project-process">
+          <span class="animation-trigger-3"></span>
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2 flush">
+              <div class="project-process-column project-process-item">
+                <h5>THE CHALLENGE</h5>
+                <br/>
+                {{record.challenge}}
+              </div>
+              <div class="project-process-column project-process-item">
+                <h5>THE STRATEGY</h5>
+                <br/>
+                {{record.strategy}}
+              </div>
+              <div class="project-process-column project-process-item">
+                <h5>THE OUTCOME</h5>
+                <br/>
+                {{record.outcome}}
+              </div>
+            </div>
+          </div>
+      </section>
+
+      <section class="slideshow">
+        <section class="slideshow-container">
+          <div class="slideshow-gallery">
+            {% for image in record.still_life_image_gallery %}
+              <div class="slide load-image {{image|thumbnail(100, 100)}}" data-src="{{image|thumbnail(2000, 900)}}"></div>
+            {% endfor %}
+          </div>
+          <div class="case-study-content">
+            <div class="content-case">
+              <h2>Still Life</h2>
+              <h3>Gallery</h3>
+              <span class="gallery-nav">
+                <span class="nav-snack"></span>
+                <span class="nav-snack"></span>
+                <span class="nav-snack"></span>
+              </span>
+            </div>
+          </div>
+        </section>
+        <section class="gallery-tiles-container container-fluid full-width">
+          <div class="row gallery-tiles">
+            <div class="col-sm-12 flush">
+              {% for image in record.still_life_image_gallery %}
+                <span class="gallery-tile" data-ref="{{image|thumbnail(100, 100)}}"><img src="{{image|thumbnail(600, 400)}}" /></span>
+              {% endfor %}
+            </div>
+          </div>
+        </section>
+      </section> 
+
+      <section class="page-content project-data container-fluid">
+        <span class="animation-trigger-4"></span>
+        <div class="row">
+          <div class="col-sm-5 col-sm-offset-1">
+            <span class="yellow-snack"></span>
+            <h2>Project <br/>Data</h2>
+            <h3>WHAT IT TOOK</h3>
+          </div>
+        </div>
+        <div class="row project-data-stats">
+          <div class="col-sm-11 col-sm-offset-1">
+              {% for data in record.what_it_took %}
+              <div class="project-data-item">
+                <h5 class="project-data-item-label">{{data.title}}</h5>
+                <span id="stat-{{data.title}}" class="project-data-item-content" data-target="{{data.title}}" data-number="{{data.number}}">0</span><span class="project-data-item-content-prefix">{{data.prefix}}</span>
+              </div>
+              {% endfor %}
+          </div>
+        </div>
+      </section>
+    
+      {% set previous = record.previous('id') %}
+      {% set next = record.next('id') %}
+      <section class="page-content project-navigation container-fluid">
+        <div class="row">
+          <div class="col-sm-4">
+            {% if previous %}
+            <a href="{{previous.link}}" class="page-navigation-link left load">
+              <img src="{{ asset('images/arrow-left.svg', 'theme') }}" width="9px"/>
+              {{previous.title}}
+            </a>
+            {% endif %}
+          </div>
+          <div class="col-sm-4 hidden-xs text-center">
+            <a href="#" class="page-navigation-link page-up">
+              Back to top<br/>
+              <img src="{{ asset('images/page-arrow-up.svg', 'theme') }}" height="9px"/>
+            </a>
+          </div>
+          <div class="col-sm-4 text-right">
+            {% if next %}
+            <a href="{{next.link}}" class="page-navigation-link right load">
+              {{next.title}}
+              <img src="{{ asset('images/arrow-right.svg', 'theme') }}" width="9px"/>
+            </a>
+            {% endif %}
+          </div>
+        </div>
+      </section>
+
+      <section class="page-content project-navigation container-fluid visible-xs">
+        <div class="row">
+          <div class="col-sm-12 text-center">
+            <a href="#" class="page-navigation-link page-up">
+              Back to top<br/>
+              <img src="{{ asset('images/page-arrow-up.svg', 'theme') }}" height="12px"/>
+            </a>
+          </div>
+        </div>
+      </section>
+      
+      {% include 'partials/_footer.twig' %}
+
+      <script src="https://f.vimeocdn.com/js/froogaloop2.min.js"></script> <!-- Universal EMBED code -->
+      <script src="{{ asset('js/countUp.js', 'theme') }}"></script>
+      <script src="{{ asset('js/project.js', 'theme') }}"></script>
+      
+{% endblock main %}

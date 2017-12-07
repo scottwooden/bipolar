@@ -1,0 +1,46 @@
+<header class="main-header">
+  <div class="container-fluid flush full-width">
+    <div class="row">
+        <div class="col-sm-4 col-xs-3">
+          <div class="main-header-logoContainer">
+            <a href="/" class="load logo">
+              <img src="{{ asset('images/logo.png', 'theme') }}" class="hidden-xs desktop-logo"/>
+              <img src="{{ asset('images/icon-logo.png', 'theme') }}" class="visible-xs" width="40px mobile-logo"/>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-8 col-xs-9 text-right">
+          <div class="main-header-linkContainer">
+            <a class="main-header-link work-btn work">Work</a>
+            <a href="/about" class="main-header-link load about">About</a>
+            <a href="/contact" class="main-header-link load contact">Contact</a>
+          </div>
+        </div>
+    </div>
+    <span class="line"></span>
+  </div>
+</header>
+
+<section id="contact-modal" class="work-modal nav-modal">
+  {% setcontent pages = 'entries' %}
+  {% for page in pages %}
+    <span id="work-background-{{page.slug}}" class="work-menu-background" style="background-image: url('/files/{{page.image}}')"></span>
+  {% endfor %}
+  <div class="work-list-container">
+    <span class="work-list-title hidden-xs">Work</span>
+    <div class="work-list-items">
+      {% setcontent pages = 'entries' %}
+      {% for page in pages %}
+        <a href="/work/{{page.slug}}" class="work-list-item load" data-target="work-background-{{page.slug}}">{{ page.title }}</a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- 
+
+  - Navbar work edit.
+  - Showing scroll bars
+  - Active states on navbar.
+
+-->

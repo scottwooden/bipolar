@@ -1,0 +1,41 @@
+{% extends 'partials/_master.twig' %}
+
+{% block main %}
+
+      <section class="hero-section home">
+        <div id="slider" class="content-container">
+          <ul class="rslides">
+            {% setcontent pages = 'entries' %}
+              {% for page in pages %}
+              <li id="slide{{page.slug}}" class="slide load-image" data-src="/files/{{page.image}}">
+                <div id="content{{page.slug}}" class="content text-center">
+                  <span class="work-label">Featured Project</span>
+                  <h1>{{page.title}}</strong></h1>
+                  <span class="work-subline">{{page.summary}}</span>
+                  <br/>
+                  <a href="/work/{{page.slug}}" class="btn btn-default load">View Project</a>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+            <span class="left-arrow">
+              <img src="{{asset('images/arrow-left.png', 'theme') }}" class="prev-button"/>
+            </span>
+            <span class="right-arrow">
+              <img src="{{asset('images/arrow-right.png', 'theme') }}" class="next-button"/>
+            </span>
+            <!-- <div class="bars hidden-xs">
+              {% setcontent pages = 'entries' %}
+                {% for page in pages %}
+                <span class="bar" data-target="{{page.slug}}"><span class="bar-progress"></span></span>
+              {% endfor %}
+            </div> -->
+          </div>
+      </section>
+
+      {% include 'partials/_footer.twig' with {'isHome':true} %}
+
+      <script src="{{asset('js/responsiveslides.js', 'theme') }}"></script>
+      <script src="{{asset('js/home.js', 'theme') }}"></script>
+
+{% endblock main %}

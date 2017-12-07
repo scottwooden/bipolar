@@ -1,0 +1,49 @@
+<!doctype html>
+<html class="no-js" lang="{{ htmllang() }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {# make sure we always display a proper title: The record's title if there is one, appended with the
+           sitename. If there is no title, we append the sitename with the payoff, if there is one. #}
+        <title>
+            {%- if record.title is defined %}{{ record.title|striptags }} | {% endif -%}
+                {{ config.get('general/sitename') -}}
+            {% if record.title is not defined and config.get('general/payoff') %} | {{ config.get('general/payoff') }}{% endif -%}
+        </title>
+        
+        <link href="{{ asset('images/favicon.png', 'theme') }}" rel="icon">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('stylesheets/responsiveslides.css', 'theme') }}">
+        <link rel="stylesheet" href="{{ asset('stylesheets/styles.css', 'theme') }}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQeOZfTmtF3Wlw0__02mOOKwnQbddrwGg"></script>
+
+    </head>
+    <body class="modal-open">
+        
+        {{include('partials/_header.twig')}}
+        
+        <section id="global-wrapper" class="hero blur">
+
+          {% block main %}
+          {% endblock main %}
+
+        </section>
+
+        <section id="loading-modal" class="loading">
+            <div class="bar"><div class="loading-progress"></div></div>
+              <div class="loading-container">
+                <span class="logo-spinner"></span>
+              </div>
+        </section>
+
+        {{ include('partials/_submit_form.twig') }}
+
+        {{ include('partials/_terms.twig') }}
+        <span class="noise"></span>
+        <script src="{{ asset('js/jquery.imageloader.js', 'theme') }}"></script>
+        <script src="{{ asset('js/main.js', 'theme') }}"></script>
+    
+    </body>
+</html>

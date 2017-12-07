@@ -1,0 +1,373 @@
+.slide-hover {
+    display: inline-block;
+    position: relative;
+    padding-bottom: 3px;
+}
+.slide-hover:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    width: 0;
+    transition: width 0s ease, background .5s ease;
+}
+.slide-hover:after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    width: 0;
+    background: $white;
+    transition: width .5s ease;
+}
+.slide-hover:hover:before {
+    width: 100%;
+    background: $white;
+    transition: width .5s ease;
+}
+.done-close {
+	color: $white;
+	&:hover {
+		color: $white;
+	}
+}
+#submit-form-btn {
+	&.disabled {
+		pointer-events: none;
+		background: none;
+		color: $white;
+		border: 2px solid $white;
+	}
+}
+.email-title {
+	&.slide-hover:after {
+		background: $yellow;
+	}
+	&.slide-hover:hover:before {
+		background: $yellow;
+	}	
+}
+.slide-hover:hover:after {
+    width: 100%;
+    background: transparent;
+    transition: all 0s ease;
+}
+.contact-hero {
+	padding-top: $gutter * 15;
+	&.parralax-container {
+		margin-bottom: 300px;
+	}
+	@media screen and (max-width: $small_screen) {
+		padding-top: 100px;
+	}
+	.btn-default {
+		width: 140px;
+
+		@media screen and (max-width: $small_screen) {
+			width: 100%;
+			margin-bottom: $gutter;
+		}
+	}
+}
+#map {
+ 	height: 430px;
+ 	* {
+    overflow: visible;
+	}
+}
+.contact-title {
+	font-size: 100px;
+	font-family: "Calibre Semibold";
+	line-height: 0.9em;
+    margin-top: 50px;
+    margin-bottom: 30px;
+	@media screen and (max-width: $small_screen) {
+		font-size: 40px;
+		margin-top: 40px;
+	}
+}
+.email-title {
+	font-size: 43px;
+	color: $yellow;
+	display: inline-block;
+	font-family: "Calibre Semibold";
+	padding-bottom: $gutter;
+	margin: $gutter * 3 0;
+	@media screen and (max-width: $small_screen) {
+		font-size: 24px;
+		margin: 30px 0 20px;
+	}
+	&.team {
+		font-size: 57px;
+		margin-bottom: 0px;
+		color: $white;
+		@media screen and (max-width: $small_screen) {
+			font-size: 24px;
+			margin-bottom: 15px;
+		}
+	}
+}
+a.address {
+	display: inline;
+	color: $white;
+	&:hover {
+		color: $white;
+		opacity: 1;
+	}
+}
+.address {
+	font-size: 29px;
+	line-height: 1.2em;
+	@media screen and (max-width: $small_screen) {
+		font-size: 24px;
+	}
+}
+#contact-modal, #privacy {
+	opacity: 0;
+	pointer-events: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.8);
+	transition: all .5s;
+	z-index: 99;
+	overflow-y: scroll;
+	transform: translateZ(0);
+	
+	&.show {
+		opacity: 1;
+		pointer-events: auto;
+	}
+}
+
+.modal-container {
+	margin: 155px auto;
+}
+
+.modal-form-input {
+	border: 0;
+	border-bottom: 1px solid #404040;
+	height: 50px;
+	padding: 0;
+	font-family: "Calibre Light";
+	font-size: 36px;
+	color: $white;
+	width: 100%;
+	background: transparent;
+	outline: none;
+	margin-bottom: 5px;
+	margin-top: $gutter * 2;
+	transition: all .4s;
+	&:hover {
+		border-bottom: 1px solid #666;
+	}
+	&:focus {
+		border-bottom: 1px solid #666;
+	}
+}
+.checkbox {
+	cursor: pointer;
+}
+.checkbox-box {
+	display: inline-block;
+	width: 11px;
+    height: 11px;
+    border: 1px solid #f1f1f1;
+	margin-right: 5px;
+}
+.checkbox-boxLabel {
+	font-size: 12px;
+	text-transform: uppercase;
+	vertical-align: top;
+}
+.checkbox.active {
+	.checkbox-box {
+		background: $white;
+	}
+}
+.form-label {
+	font-family: "Calibre Semibold";
+	color: $yellow;
+	font-size: 12px;
+	font-weight: 700;
+	display: block;
+}
+
+.close-modal {
+	cursor: pointer;
+	display: inline-block;
+	-webkit-transform: rotate(0deg);
+	-moz-transform: rotate(0deg);
+	-o-transform: rotate(0deg);
+	-ms-transform: rotate(0deg);
+	transform: rotate(0deg);
+	transition: all .4s;
+	transition-delay: 0s;
+	&.loaded {
+		-webkit-transform: rotate(180deg);
+		-moz-transform: rotate(180deg);
+		-o-transform: rotate(180deg);
+		-ms-transform: rotate(180deg);
+		transform: rotate(180deg);
+	}
+	&:hover {
+		&.spin {
+			-webkit-transform: rotate(180deg);
+			-moz-transform: rotate(180deg);
+			-o-transform: rotate(180deg);
+			-ms-transform: rotate(180deg);
+			transform: rotate(180deg);
+		}
+	}
+	&.no-spin {
+		-webkit-transform: rotate(0deg) !important;
+		-moz-transform: rotate(0deg) !important;
+		-o-transform: rotate(0deg) !important;
+		-ms-transform: rotate(0deg) !important;
+		transform: rotate(0deg) !important;
+	}
+}
+.contact-link {
+	transition: all .3s;
+	&:hover {
+		color: $white;
+		display: inline-block;
+		opacity: 1;
+		&.email-title {
+			color: $yellow;
+		}
+	}
+}
+#contact-us {
+	@media screen and (max-width: $small_screen) {
+		margin-bottom: 50px;
+	}
+}
+.map-overlap {
+	position: relative;
+    z-index: 2;
+}
+.parralax-container {
+	position: relative;
+	margin-bottom: 166px;
+    padding-bottom: 50px;
+	@media screen and (max-width: $small_screen) {
+		margin-bottom: 100px;
+	}
+	.parralax-image {
+		position: absolute;
+		display: inline-block;
+		bottom: 100px;
+		z-index: -1;
+		width: 65%;
+		@media screen and (max-width: $medium_screen) {
+			width: 65%;
+			max-width: 1100px;
+		}
+		@media screen and (max-width: $small_screen) {
+			width: 90%;
+		}
+		&.parralax-1 {
+			bottom: -205px;
+			@media screen and (max-width: $small_screen) {
+				bottom: -140px;
+			}
+		}
+		&.map-container {
+			bottom: -30px;
+			@media screen and (max-width: $small_screen) {
+				position: relative;
+				bottom: 0px;
+				width: 100% !important;
+				margin-top: 30px;
+			}
+		}
+		&.parralax-3 {
+			bottom: -5px;
+			@media screen and (max-width: $small_screen) {
+				bottom: 120px;
+			}
+		}
+		&.parralax-4 {
+			bottom: -20px;
+			@media screen and (max-width: $small_screen) {
+				bottom: 0px;
+			}
+		}
+		&.right {
+			right: 0;
+		}
+		&.left {
+			left: 0;
+		}
+		img {
+			opacity: 0.5;
+			width: 100%;
+		}
+		&.map-container {
+			z-index: 1;
+			width: 67%;
+			img { 
+				opacity: 1;
+			}
+		}
+	}
+}
+
+.representation {
+	h4 {
+		margin-bottom: 0;
+	}
+	h5 {
+		margin-top: $gutter * 2;
+		text-transform: none;
+		margin-bottom: 3px;
+	}
+	a {
+		color: $white;
+		transition: all .4s;
+		&:hover {
+			color: $white;
+			opacity: 1;
+		}
+	}
+}
+.work-with-us {
+	margin-bottom: 400px;
+	h5.title {
+		font-size: 20px;
+		text-transform: none;
+		margin-bottom: 0;
+		font-family: "Calibre Semibold";
+	}
+	a {
+		display: inline-block;
+		font-size: 20px;
+		color: $white;
+		margin-bottom: $gutter;
+	}
+	@media screen and (max-width: $medium_screen) {
+		margin-bottom: 300px;
+	}
+	@media screen and (max-width: $small_screen) {
+		margin-bottom: 50px;
+	}
+}
+
+// Removing google maps credits..
+// 
+a[href^="http://maps.google.com/maps"]{display:none !important}
+a[href^="https://maps.google.com/maps"]{display:none !important}
+
+.gmnoprint a, .gmnoprint span, .gm-style-cc {
+    display:none;
+}
+.gmnoprint div {
+    background:none !important;
+}

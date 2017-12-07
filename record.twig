@@ -1,0 +1,149 @@
+{% extends 'partials/_master.twig' %}
+
+{% block main %}
+
+      <section class="hero-section" id="project-video">
+        {% if record.vimeo_url != "" %}
+        <div id="video-wrapper">
+          <iframe id="hero-player" src="https://player.vimeo.com/video/{{record.vimeo_url}}?api=1&player_id=hero-player" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        </div>
+        {% endif %}
+        <div class="slide-container">
+          <div class="slide slide-background active" style="background-image: url('/files/{{record.image}}')"></div>
+        </div>
+        <div class="content-container">
+          <div class="content text-center active">
+            <span class="btn-play" id="project-video-play"><img src="{{ asset('images/icon-play.png', 'theme')}}" width="80px"/></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-content container-fluid">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center">
+              <h1 class="project-title">{{record.title}}</h1>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center"><h3>SUMMARY</h3></div>
+          </div>
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center"><span class="project-label">{{record.summary}}</span></div>
+          </div>
+      </section>
+
+      <section class="page-content container-fluid project-description">
+          <div class="row">
+            <div class="col-md-5 col-md-offset-1">
+              <h2>
+                {{record.teaser}}
+              </h2>
+              <p>
+                {{record.body}}
+              </p>
+            </div>
+            <div class="col-md-2 col-md-offset-1 project-meta">
+              <h5>CLIENT</h5>
+              <p>{{record.client}}</p>
+
+              <h5>AGENCY</h5>
+              <p>{{record.agency}}</p>
+
+              <h5>CO-PRODUCTION</h5>
+              <p>{{record.coproduction}}</p>
+
+              <h5>POST PRODUCTION</h5>
+              <p>{{record.postproduction}}</p>
+
+              <h5>SHARE THIS</h5>
+            </div>
+          </div>
+      </section>
+
+      <section class="project-case-study">
+        {% if record.vimeo_case_study_url != "" %}
+        <div id="video-wrapper">
+          <iframe id="case-study-player" src="https://player.vimeo.com/video/{{record.vimeo_case_study_url}}?api=1&player_id=case-study-player" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        </div>
+        {% endif %}
+        <div class="project-case-study-background" style="background-image: url('images/case-study-1.jpg')"></div>
+        <div class="case-study-content">
+          <h2>Case Study</h2>
+          <h3>How we made it</h3>
+          <span class="btn-play"><img src="images/icon-play.png" width="80px"/></span>
+        </div>
+      </section>
+
+      <section class="page-content container">
+          <div class="row">
+            <div class="col-md-3 col-md-offset-1">
+              <h5>THE CHALLENGE</h5>
+              <br/>
+              {{record.challenge}}
+            </div>
+            <div class="col-md-3 col-md-offset-1">
+              <h5>THE STRATEGY</h5>
+              <br/>
+              {{record.strategy}}
+            </div>
+            <div class="col-md-3 col-md-offset-1">
+              <h5>THE OUTCOME</h5>
+              <br/>
+              {{record.outcome}}
+            </div>
+          </div>
+      </section>
+
+      <section class="slideshow">
+        <section class="slideshow-container">
+          <div class="slideshow-gallery">
+            {% for image in record.still_life_image_gallery %}
+              <div class="slide active" style="background-image: url('{{image|thumbnail(2000, 900)}}')"></div>
+            {% endfor %}
+          </div>
+          <div class="case-study-content">
+            <h2>Still Life</h2>
+            <h3>Gallery</h3>
+            <span class="gallery-nav">
+              <span class="nav-snack"></span>
+              <span class="nav-snack"></span>
+              <span class="nav-snack"></span>
+            </span>
+          </div>
+        </section>
+        <section class="gallery-tiles-container container-fluid">
+          <div class="row gallery-tiles">
+            <div class="col-sm-12 flush">
+              {% for image in record.still_life_image_gallery %}
+                <span class="gallery-tile"><img src="{{image|thumbnail(600, 400)}}" /></span>
+              {% endfor %}
+            </div>
+          </div>
+        </section>
+      </section> 
+
+      <section class="page-content project-data container-fluid">
+        <div class="row">
+          <div class="col-sm-5 col-sm-offset-1">
+            <span class="yellow-snack"></span>
+            <h2>Project <br/>Data</h2>
+            <h3>WHAT IT TOOK</h3>
+          </div>
+        </div>
+        <div class="row project-data-stats">
+          <div class="col-sm-11 col-sm-offset-1">
+            {% for data in record.what_it_took %}
+            <div class="project-data-item">
+              <h5 class="project-data-item-label">{{data.stat_title}}</h5>
+              <span class="project-data-item-content">{{data.stat_content}}</span>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+
+      {% include 'partials/_footer.twig' %}
+
+      <script src="{{ asset('js/project.js', 'theme') }}"></script>
+
+{% endblock main %}
